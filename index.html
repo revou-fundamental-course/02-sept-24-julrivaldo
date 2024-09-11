@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tugas revou</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>welcome to katik</h1>
+        <p>Hai soba selamat datang di katik ;)</p>
+        <p>
+          Sebuah web app sederhana yag berfungsi untuk menghitung nilai luas dan
+          keliling bangun datar
+        </p>
+        <p>project julius</p>
+        <p2>SILAHKAN PILIH :)</p2>
+        <div class="btn_container">
+          <button
+            type="button"
+            class="btn_segitiga"
+            onclick="tampilkanSegitiga()"
+          >
+            Segitiga
+          </button>
+          <button
+            type="button"
+            class="btn_jajargenjang"
+            onclick="tampilkanJajargenjang()"
+          >
+            Jajar Genjang
+          </button>
+        </div>
+      </header>
+      <!--LUAS SEGITIGA-->
+      <section id="segitiga" class="containt">
+        <h2>Luas Segitiga</h2>
+        <article class="segitigaar">
+          <div class="segitiga-img"></div>
+          <div class="formula-center">
+            <p>Rumus Luas Segitiga yaitu :<br />L = 1/2 x a x t</p>
+            <p>Di mana:</p>
+            <table>
+              <tr>
+                <td>L</td>
+                <td>= Luas</td>
+              </tr>
+              <tr>
+                <td>A</td>
+                <td>= Panjang Alas</td>
+              </tr>
+              <tr>
+                <td>T</td>
+                <td>= Tinggi</td>
+              </tr>
+            </table>
+          </div>
+        </article>
+
+        <form
+          action="#"
+          class="form-calc"
+          onsubmit="event.preventDefault(); hitungLuas();"
+        >
+          <label for="alas">Panjang Alas (A):</label>
+          <input
+            type="number"
+            id="alas"
+            placeholder="Masukkan Panjang Alas"
+            required
+          />
+          <label for="tinggi">Tinggi (T):</label>
+          <input
+            type="number"
+            id="tinggi"
+            placeholder="Masukkan tinggi"
+            required
+          />
+          <div class="buttons">
+            <button type="submit" class="btn-calculate">Hitung</button>
+            <button
+              type="reset"
+              class="btn-reset"
+              onclick="resetAll('hasilLuas', ['alas', 'tinggi'])"
+            >
+              Reset
+            </button>
+          </div>
+          <p id="hasilLuas"></p>
+        </form>
+      </section>
+      <!-- Form Keliling Segitiga -->
+      <section id="keliling" class="containt-hidden">
+        <h2>Keliling Segitiga</h2>
+        <article class="segitigaar">
+          <div class="segitiga-img"></div>
+          <div class="formula-center">
+            <p>Rumus Keliling Segitiga yaitu :<br />K = S1 + S2 + S3</p>
+            <p>Di mana:</p>
+            <table>
+              <tr>
+                <td>K</td>
+                <td>= Keliling</td>
+              </tr>
+              <tr>
+                <td>S1</td>
+                <td>= Sisi A</td>
+              </tr>
+              <tr>
+                <td>S2</td>
+                <td>= Sisi B</td>
+              </tr>
+              <tr>
+                <td>S3</td>
+                <td>= Sisi C</td>
+              </tr>
+            </table>
+          </div>
+        </article>
+
+        <form
+          action="#"
+          class="form-calc"
+          onsubmit="event.preventDefault(); hitungKeliling();"
+        >
+          <label for="sisi1">Sisi A (S1):</label>
+          <input
+            type="number"
+            id="sisi1"
+            placeholder="Masukkan panjang Sisi A"
+            required
+          />
+
+          <label for="sisi2">Sisi B (S2):</label>
+          <input
+            type="number"
+            id="sisi2"
+            placeholder="Masukkan panjang Sisi B"
+            required
+          />
+
+          <label for="sisi3">Sisi C (S3):</label>
+          <input
+            type="number"
+            id="sisi3"
+            placeholder="Masukkan panjang Sisi C"
+            required
+          />
+
+          <div class="buttons">
+            <button type="submit" class="btn-calculate">Hitung</button>
+            <button
+              type="reset"
+              class="btn-reset"
+              onclick="resetAll('hasilKeliling', ['sisi1', 'sisi2', 'sisi3'])"
+            >
+              Reset
+            </button>
+          </div>
+        </form>
+        <p id="hasilKeliling"></p>
+      </section>
+      <!--jajajr ganjang-->
+      <section id="jajargenjang-luas" class="containt-hidden">
+        <h2>Luas Jajar Genjang</h2>
+        <article class="jajar-genjang">
+          <div class="jajargenjang-img"></div>
+          <div class="formula-center">
+            <p>Rumus jajar genjang yaitu :<br />L = a x t</p>
+            <p>Di mana:</p>
+            <table>
+              <tr>
+                <td>L</td>
+                <td>= LUAS</td>
+              </tr>
+              <tr>
+                <td>A</td>
+                <td>= PANJANG ALAS</td>
+              </tr>
+              <tr>
+                <td>T</td>
+                <td>= TINGGI</td>
+              </tr>
+            </table>
+          </div>
+        </article>
+        <!--form luas jajar genjang-->
+        <form
+          action="#"
+          class="form-calc"
+          onsubmit="event.preventDefault(); hitungLuasjajargenjang();"
+        >
+          <label for="alasjajar">Alas:</label>
+          <input
+            type="number"
+            id="alasjajar"
+            placeholder="Masukkan Alas"
+            required
+          />
+
+          <label for="tinggijajar">Tinggi:</label>
+          <input
+            type="number"
+            id="tinggijajar"
+            placeholder="Masukkan Tinggi"
+            required
+          />
+
+          <div class="buttons">
+            <button type="submit" class="btn-calculate">Hitung</button>
+            <button
+              type="reset"
+              class="btn-reset"
+              onclick="resetAll('hasiljajargenjang', ['alasjajar', 'tinggijajar'])"
+            >
+              Reset
+            </button>
+          </div>
+          <p id="hasiljajargenjang"></p>
+        </form>
+      </section>
+      <!-- Keliling jajargenjang -->
+      <section id="jajargenjang-kel" class="containt-hidden">
+        <h2>Keliling Jajar Genjang</h2>
+        <article class="jajar-genjang-kel">
+          <div class="jajargenjang-img"></div>
+          <div class="formula-center">
+            <p>Rumus Keliling Jaja Genjang yaitu :<br />K = 2 x (a + b)</p>
+            <p>Di mana:</p>
+            <table>
+              <tr>
+                <td>K</td>
+                <td>= Keliling</td>
+              </tr>
+              <tr>
+                <td>S1</td>
+                <td>= Sisi 1</td>
+              </tr>
+              <tr>
+                <td>S2</td>
+                <td>= Sisi 2</td>
+              </tr>
+            </table>
+          </div>
+        </article>
+        <!--form luas jajar genjang-->
+        <form
+          action="#"
+          class="form-calc"
+          onsubmit="event.preventDefault(); hitungKelilingjajargenjang();"
+        >
+          <label for="sisike1">sisi 1:</label>
+          <input
+            type="number"
+            id="sisike1"
+            placeholder="Masukkan Sisi ke 1"
+            required
+          />
+
+          <label for="sisike2">sisi 2:</label>
+          <input
+            type="number"
+            id="sisike2"
+            placeholder="Maskkan sisi ke 2"
+            required
+          />
+
+          <div class="buttons">
+            <button type="submit" class="btn-calculate">Hitung</button>
+            <button
+              type="reset"
+              class="btn-reset"
+              onclick="resetAll('keljajargenjang', ['alasjajar', 'tinggijajar'])"
+            >
+              Reset
+            </button>
+          </div>
+          <p id="keljajargenjang"></p>
+        </form>
+      </section>
+    </div>
+  </body>
+</html>
